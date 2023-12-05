@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('images/65b6c0b97ceda8133de7694e47d56d42.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    font-family: 'Helvetica Light' ;
+    color: #fff;
+    position: relative;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/pngpng.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: 1;
+}
+
+
+.pattern {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%; /* Ширина части с узором */
+    background-size: cover;
+    z-index: 2;
+}
+
+.pattern-left {
+    left: 0;
+    background: url('images/gdleftside.png') repeat-y; /* Путь к изображению с узором */
+}
+
+.pattern-right {
+    right: 0;
+    background: url('images/gd\ rightside.png') repeat-y; /* Путь к изображению с узором */
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 35, 38, 0.5);
+    z-index: -1;
+}
+
+header {
+    background-color: transparent;
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.234);
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+
+
+.title-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px; /* Отступ слева */
+    z-index: 3;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Almendra Display', serif;
+    font-size: 70px;
+    position: relative;
+    color: rgb(255, 255, 255);
+    margin-top: 30px;
+    margin-bottom: -20px;
+}
+
+
+.title {
+    font-family: 'Almendra Display', serif; 
+    font-size: large;
+    margin: 10px 30px; /* Задаем отступы: сверху и снизу 10px, слева и справа 20px */
+    margin-top: -5px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    width: calc(100% - 20px); /* Растягиваем ширину на всю ширину экрана, вычитая отступы с обеих сторон */
+    max-width: 1200px;
+    margin: auto;
+    z-index: 4;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease; /* Добавляем анимацию transform со скоростью 1 секунда */
+}
+
+.imgs:hover {
+    transform: scale(2); /* При наведении, увеличиваем размер картинки на 10% */
+z-index: 4;
+}
+
+
+footer {
+    background-color: transparent;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.contact-container {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 40%;
+    padding-left: 30px;
+    font-weight: normal;
+    color: white;
+    margin-top: auto;
+    position: relative; /* Добавляем позиционирование для позиционирования линии */
+}
+
+.contact-container::before {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 2px; /* Высота линии */
+    background-color: rgb(255, 255, 255);
+    top: 5px;
+    left: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-bottom: 5px;
+}
+
+/* Для устройств с шириной экрана меньше 600px */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px; /* Уменьшаем отступ в шапке на мобильных устройствах */
+    }
+
+    .title-container {
+        margin-left: 5px; /* Уменьшаем отступ слева для титульного текста на мобильных устройствах */
+    }
+
+    .contact-container {
+        margin-left: 5px; /* Уменьшаем отступ слева для контактов на мобильных устройствах */
+    }
+
+    main {
+        height: auto; /* Позволяет основной секции растягиваться по содержимому */
+    }
+
+    .image-container {
+        width: 100%; /* Растягиваем коллаж на всю ширину экрана на мобильных устройствах */
+        margin: 0; /* Убираем отступы по бокам для коллажа на мобильных устройствах */
+    }
+
+    .image-container img {
+        height: auto; /* Позволяет изображениям растягиваться по содержимому */
+    }
+
+    .contact-container {
+        max-width: 100%; /* Делаем контакты на мобильных устройствах на всю ширину экрана */
+    }
+}
